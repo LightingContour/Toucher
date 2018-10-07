@@ -5,6 +5,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.PixelFormat;
+import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.SystemClock;
@@ -54,7 +55,13 @@ public class MainService extends Service {
         params = new WindowManager.LayoutParams();
         windowManager = (WindowManager) getApplication().getSystemService(Context.WINDOW_SERVICE);
         //设置type.系统提示型窗口，一般都在应用程序窗口之上.
-        params.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+        //Android8.0行为变更，对8.0进行适配https://developer.android.google.cn/about/versions/oreo/android-8.0-changes#o-apps
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1)
+        {
+            params.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+        }else {
+            params.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+        }
         //设置效果为背景透明.
         params.format = PixelFormat.RGBA_8888;
         //设置flags.不可聚焦及不可使用按钮对悬浮窗进行操控.
