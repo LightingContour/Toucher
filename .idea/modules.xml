@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Toucher.iml" filepath="$PROJECT_DIR$/Toucher.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Company-toucher.iml" filepath="$PROJECT_DIR$/Company-toucher.iml" />
+      <module fileurl="file://$PROJECT_DIR$/toucher.iml" filepath="$PROJECT_DIR$/toucher.iml" />
     </modules>
   </component>
 </project>
